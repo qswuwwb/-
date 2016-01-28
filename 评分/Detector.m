@@ -16,9 +16,12 @@
         detector = [[Detector alloc] init];
         detector.results = [@{} mutableCopy];
         detector.standardAnswer = @"ABCD";
+        detector.ignoredAnswers = @[@2];
     }
     return detector;
 }
+
+
 
 - (BOOL)detectWithAnswer:(NSString *)stuAnswer{
     
@@ -44,15 +47,26 @@
     }
     
     
+    [self getResult:answer name:name ignoredAnswers:_ignoredAnswers];
+    return YES;
+}
+- (void)getResult:(NSString *)answer name:(NSString *)name ignoredAnswers:(NSArray*)ignoredAnswers{
+    BOOL isIgnoredAnswer;
     NSMutableArray *arr = [@[] mutableCopy];
     for (int i = 0; i < answer.length; i++) {
-        if ([answer characterAtIndex:i] != [self.standardAnswer characterAtIndex:i]){
+        isIgnoredAnswer = NO;
+        for (NSNumber *num in ignoredAnswers) {
+            if ([num intValue] == i + 1) {
+                isIgnoredAnswer = YES;
+                break;
+            }
+        }
+        if ([answer characterAtIndex:i] != [self.standardAnswer characterAtIndex:i] && !isIgnoredAnswer){
             [arr addObject:@(i +1 )];
         }
     }
     StudentScore *score = [[StudentScore alloc] initWithWrongAnswers:arr];
     [self.results setObject:score forKey:name];
-    return YES;
 }
 
 @end

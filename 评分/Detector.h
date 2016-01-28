@@ -11,6 +11,7 @@
 @interface Detector : NSObject
 @property (nonatomic, strong)NSString *standardAnswer;
 @property (nonatomic, strong)NSMutableDictionary *results;
+@property (nonatomic, strong)NSArray *ignoredAnswers;
 + (instancetype)sharedDetector;
 - (BOOL)detectWithAnswer:(NSString*)stuAnswer;
 
