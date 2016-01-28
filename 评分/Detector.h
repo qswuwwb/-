@@ -10,8 +10,9 @@
 
 @interface Detector : NSObject
 @property (nonatomic, strong)NSString *standardAnswer;
-@property (nonatomic, strong)NSMutableDictionary *results;
+@property (nonatomic, strong)NSMutableArray *results;
 @property (nonatomic, strong)NSArray *ignoredAnswers;
+@property (nonatomic, strong)NSDate *startTime;
 + (instancetype)sharedDetector;
 - (BOOL)detectWithAnswer:(NSString*)stuAnswer;
 

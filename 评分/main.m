@@ -14,7 +14,7 @@ int main(int argc, const char * argv[]) {
     @autoreleasepool {
         Detector *detector = [Detector sharedDetector];
         [detector detectWithAnswer:@"f:AAfD"];
-        [detector.results[@"f"] show];
+        [detector.results[0] show];
         
     }
     return 0;

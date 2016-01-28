@@ -25,6 +25,7 @@ NSString *standardAnswer = @"ABCD";
         [str appendString:[NSString stringWithFormat:@"%@", n]];
         [str appendString:@" "];
     }
-    NSLog(@"得分：%ld\t错误题号：%@", (long)self.score, str);
+    
+    NSLog(@"姓名：%@\t用时：%f分\t得分：%ld\t错误题号：%@",self.stu.name, self.stu.time / 60, (long)self.score, str);
 }
 @end

@@ -10,6 +10,7 @@
 		7E4E5A6A1C58D869003B161B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E4E5A691C58D869003B161B /* main.m */; };
 		7E4E5A721C58DC34003B161B /* StudentScore.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E4E5A711C58DC34003B161B /* StudentScore.m */; };
 		7E4E5A751C58DED0003B161B /* Detector.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E4E5A741C58DED0003B161B /* Detector.m */; };
+		7E78A3391C5AB8B9001E773C /* Student.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E78A3381C5AB8B9001E773C /* Student.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -31,6 +32,8 @@
 		7E4E5A711C58DC34003B161B /* StudentScore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StudentScore.m; sourceTree = "<group>"; };
 		7E4E5A731C58DED0003B161B /* Detector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Detector.h; sourceTree = "<group>"; };
 		7E4E5A741C58DED0003B161B /* Detector.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Detector.m; sourceTree = "<group>"; };
+		7E78A3371C5AB8B9001E773C /* Student.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Student.h; sourceTree = "<group>"; };
+		7E78A3381C5AB8B9001E773C /* Student.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Student.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,6 +71,8 @@
 				7E4E5A711C58DC34003B161B /* StudentScore.m */,
 				7E4E5A731C58DED0003B161B /* Detector.h */,
 				7E4E5A741C58DED0003B161B /* Detector.m */,
+				7E78A3371C5AB8B9001E773C /* Student.h */,
+				7E78A3381C5AB8B9001E773C /* Student.m */,
 			);
 			path = "评分";
 			sourceTree = "<group>";
@@ -131,6 +136,7 @@
 				7E4E5A751C58DED0003B161B /* Detector.m in Sources */,
 				7E4E5A721C58DC34003B161B /* StudentScore.m in Sources */,
 				7E4E5A6A1C58D869003B161B /* main.m in Sources */,
+				7E78A3391C5AB8B9001E773C /* Student.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -249,6 +255,7 @@
 				7E4E5A6F1C58D869003B161B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

@@ -7,10 +7,12 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "Student.h"
 
 @interface StudentScore : NSObject
 @property (nonatomic, assign, readonly)NSInteger score;
 @property (nonatomic, strong)NSArray *wrongAnswers;
+@property (nonatomic, strong)Student *stu;
 
 - (instancetype)initWithWrongAnswers:(NSArray*)arr;
 - (void)show;

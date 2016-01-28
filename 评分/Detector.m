@@ -8,15 +8,25 @@
 
 #import "Detector.h"
 #import "StudentScore.h"
+#import "Student.h"
 
 @implementation Detector
 + (instancetype)sharedDetector{
     static Detector *detector = nil;
     if (!detector) {
         detector = [[Detector alloc] init];
-        detector.results = [@{} mutableCopy];
+        detector.results = [@[] mutableCopy];
         detector.standardAnswer = @"ABCD";
         detector.ignoredAnswers = @[@2];
+        NSDateComponents *components = [[NSDateComponents alloc] init];
+        components.calendar = [NSCalendar currentCalendar];
+        components.year = 2016;
+        components.month = 1;
+        components.day = 29;
+        components.hour = 4;
+        components.minute = 0;
+        components.second = 0;
+        detector.startTime = components.date;
     }
     return detector;
 }
@@ -25,7 +35,10 @@
 
 - (BOOL)detectWithAnswer:(NSString *)stuAnswer{
     
-    NSString *name = nil;
+    
+    Student *stu = [[Student alloc] init];
+    
+    stu.time = -_startTime.timeIntervalSinceNow;
     NSString *formatAnswer = nil;
     NSString *answer = nil;
      formatAnswer = [stuAnswer stringByReplacingOccurrencesOfString:@"：" withString:@":"];
@@ -35,7 +48,7 @@
         NSLog(@"没有名字");
         return NO;
     } else {
-        name = infoAndAnswer[0];
+        stu.name = infoAndAnswer[0];
         answer = infoAndAnswer[1];
     }
     if (answer.length > self.standardAnswer.length) {
@@ -47,10 +60,11 @@
     }
     
     
-    [self getResult:answer name:name ignoredAnswers:_ignoredAnswers];
+    
+    [self getResult:answer student:stu ignoredAnswers:_ignoredAnswers];
     return YES;
 }
-- (void)getResult:(NSString *)answer name:(NSString *)name ignoredAnswers:(NSArray*)ignoredAnswers{
+- (void)getResult:(NSString *)answer student:(Student *)stu ignoredAnswers:(NSArray*)ignoredAnswers{
     BOOL isIgnoredAnswer;
     NSMutableArray *arr = [@[] mutableCopy];
     for (int i = 0; i < answer.length; i++) {
@@ -66,7 +80,8 @@
         }
     }
     StudentScore *score = [[StudentScore alloc] initWithWrongAnswers:arr];
-    [self.results setObject:score forKey:name];
+    score.stu = stu;
+    [self.results addObject:score];
 }
 
 @end
