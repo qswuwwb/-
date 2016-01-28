@@ -7,11 +7,15 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "Detector.h"
+#import "StudentScore.h"
 
 int main(int argc, const char * argv[]) {
     @autoreleasepool {
-        // insert code here...
-        NSLog(@"Hello, World!");
+        Detector *detector = [Detector sharedDetector];
+        [detector detectWithAnswer:@"f:AAfD"];
+        [detector.results[@"f"] show];
+        
     }
     return 0;
 }
