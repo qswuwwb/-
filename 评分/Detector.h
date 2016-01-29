@@ -16,4 +16,5 @@
 + (instancetype)sharedDetector;
 - (BOOL)detectWithAnswer:(NSString*)stuAnswer;
 - (BOOL)writeToFile:(NSString*)path;
+- (void)sortedByScore;
 @end

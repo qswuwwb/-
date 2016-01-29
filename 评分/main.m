@@ -19,6 +19,7 @@ int main(int argc, const char * argv[]) {
             inputAnswer = [inputAnswer stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
             if ([detector detectWithAnswer:inputAnswer]) {
                  NSLog(@"%@", [detector.results[0] resultString]);
+                [detector sortedByScore];
                 if ([detector writeToFile:@"/Users/ysj/Desktop/result"]){
                     NSLog(@"保存成功");
                 } else {

@@ -92,4 +92,18 @@
     NSError *error = nil;
     return [writeString writeToFile:path atomically:NO encoding:NSUTF8StringEncoding error:&error];
 }
+- (void)sortedByScore{
+    [self.results sortUsingComparator:^NSComparisonResult(id  _Nonnull obj1, id  _Nonnull obj2) {
+        StudentScore* score1 = obj1;
+        StudentScore* score2 = obj2;
+        if (score1.score > score2.score) {
+            return NSOrderedDescending;
+        } else if (score1.score == score2.score) {
+            return NSOrderedSame;
+        } else {
+            return NSOrderedAscending;
+        }
+        
+    }];
+}
 @end
