@@ -15,5 +15,5 @@
 @property (nonatomic, strong)NSDate *startTime;
 + (instancetype)sharedDetector;
 - (BOOL)detectWithAnswer:(NSString*)stuAnswer;
-
+- (BOOL)writeToFile:(NSString*)path;
 @end

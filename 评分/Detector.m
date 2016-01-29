@@ -83,5 +83,13 @@
     score.stu = stu;
     [self.results addObject:score];
 }
-
+- (BOOL)writeToFile:(NSString *)path{
+    NSMutableString *writeString = [@"" mutableCopy];
+    for (StudentScore *score in self.results) {
+        [writeString appendString:score.resultString];
+        [writeString appendString:@"\n"];
+    }
+    NSError *error = nil;
+    return [writeString writeToFile:path atomically:NO encoding:NSUTF8StringEncoding error:&error];
+}
 @end

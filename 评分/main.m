@@ -12,9 +12,21 @@
 
 int main(int argc, const char * argv[]) {
     @autoreleasepool {
-        Detector *detector = [Detector sharedDetector];
-        [detector detectWithAnswer:@"f:AAfD"];
-        [detector.results[0] show];
+        while (1) {
+            Detector *detector = [Detector sharedDetector];
+            NSLog(@"请输入学生答案：");
+            NSString *inputAnswer = [[NSString alloc] initWithData:[NSFileHandle fileHandleWithStandardInput].availableData encoding:NSUTF8StringEncoding];
+            inputAnswer = [inputAnswer stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
+            if ([detector detectWithAnswer:inputAnswer]) {
+                 NSLog(@"%@", [detector.results[0] resultString]);
+                if ([detector writeToFile:@"/Users/ysj/Desktop/result"]){
+                    NSLog(@"保存成功");
+                } else {
+                    NSLog(@"保存失败");
+                };
+            }
+            
+        }
         
     }
     return 0;

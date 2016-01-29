@@ -9,6 +9,7 @@
 #import "StudentScore.h"
 NSString *standardAnswer = @"ABCD";
 @implementation StudentScore
+
 - (NSInteger)score{
     return (1 - (CGFloat)self.wrongAnswers.count / standardAnswer.length) *100;
 }
@@ -19,13 +20,15 @@ NSString *standardAnswer = @"ABCD";
     }
     return self;
 }
-- (void)show{
+- (NSString *)resultString{
+
     NSMutableString *str = [@"" mutableCopy];
+    
     for (NSNumber *n in self.wrongAnswers) {
         [str appendString:[NSString stringWithFormat:@"%@", n]];
         [str appendString:@" "];
     }
-    
-    NSLog(@"姓名：%@\t用时：%f分\t得分：%ld\t错误题号：%@",self.stu.name, self.stu.time / 60, (long)self.score, str);
+    NSString *result = [NSString stringWithFormat:@"姓名：%@\t用时：%f分\t得分：%ld\t错误题号：%@",self.stu.name, self.stu.time / 60, (long)self.score, str];
+    return result;
 }
 @end

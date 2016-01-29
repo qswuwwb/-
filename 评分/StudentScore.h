@@ -15,5 +15,6 @@
 @property (nonatomic, strong)Student *stu;
 
 - (instancetype)initWithWrongAnswers:(NSArray*)arr;
-- (void)show;
+
+- (NSString*)resultString;
 @end
